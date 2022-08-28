@@ -69,11 +69,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   left: 0;
-  padding-bottom: 45px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .twitter-logo {
@@ -102,6 +103,16 @@
   position: relative;
   justify-self: center;
   align-self: center;
+}
+
+.gif-grid .gif-item-address {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-self: center;
+  align-self: center;
+  font-size: small;
+  color: white;
 }
 
 .gif-item img {

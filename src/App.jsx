@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import twitterLogo from './assets/twitter-logo.svg';
+import githubLogo from './assets/github-logo-white.png';
 import './App.css';
 import idl from './idl.json';
 import kp from './keypair.json'
@@ -11,6 +11,7 @@ window.Buffer = Buffer;
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
+const GITHUB_LINK = 'https://github.com/samueledelloca'
 
 const { SystemProgram, Keypair } = web3;
 
@@ -21,13 +22,6 @@ const baseAccount = web3.Keypair.fromSecretKey(secret)
 const programID = new PublicKey(idl.metadata.address);
 const network = clusterApiUrl('devnet');
 const opts = { preflightCommitment: "processed" }
-
-const TEST_GIFS = [
-	'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-	'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif?cid=ecf05e47rr9qizx2msjucl1xyvuu47d7kf25tqt2lvo024uo&rid=giphy.gif&ct=g',
-	'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif?cid=ecf05e47qdzhdma2y3ugn32lkgi972z9mpfzocjj6z1ro4ec&rid=giphy.gif&ct=g',
-	'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp'
-]
 
 const App = () => {
 
@@ -182,6 +176,9 @@ const App = () => {
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
                 <img src={item.gifLink} />
+                <p className="gif-item-address">
+                  From: {item.userAddress.toString()}
+                </p>
               </div>
             ))}
           </div>
@@ -214,18 +211,18 @@ const App = () => {
         <div className="header-container">
           <p className="header">🖼 GIF Portal</p>
           <p className="sub-text">
-            View your GIF collection in the metaverse ✨
+            Crypto GIF collection on the blockchain ✨
           </p>
           {walletAddress ? renderConnectedContainer() : renderNotConnectedContainer()}
         </div>
         <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+          <img alt="Twitter Logo" className="twitter-logo" src={githubLogo} />
           <a
             className="footer-text"
-            href={TWITTER_LINK}
+            href={GITHUB_LINK}
             target="_blank"
             rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
+          >{` samueledelloca`}</a>
         </div>
       </div>
     </div>
